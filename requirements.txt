@@ -10,4 +10,5 @@ dill
 flask
 requests
 gunicorn
+streamlit
 # -e .

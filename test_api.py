@@ -1,6 +1,6 @@
 import requests
 
-url = 'http://127.0.0.1:5000/predict'
+url = 'https://student-score-api.onrender.com/predict'
 
 data = {
     "gender": "female",
