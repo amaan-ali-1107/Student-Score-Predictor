@@ -15,13 +15,13 @@ with open(os.path.join(ARTIFACTS_PATH, 'model.pkl'), 'rb') as f:
     model = pickle.load(f)
 
 application = Flask(__name__)
-app=application
 
-@app.route('/')
+
+@application.route('/')
 def home():
     return 'Math Score Prediction API is running!'
 
-@app.route('/predict', methods=['POST'])
+@application.route('/predict', methods=['POST'])
 def predict():
     try:
         data = request.get_json()
@@ -43,4 +43,4 @@ def predict():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    application.run(debug=True)
