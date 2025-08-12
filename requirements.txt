@@ -11,4 +11,5 @@ flask
 requests
 gunicorn
 streamlit
+flask_cors
 # -e .
