@@ -5,7 +5,9 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
-app= Flask(__name__)
+appplication= Flask(__name__)
+app = appplication
+
 CORS(app)  # Enable CORS for all routes
 
 # ---------------- Home Page ----------------
@@ -76,5 +78,5 @@ def api_predict():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=False)
         
