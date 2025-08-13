@@ -1,4 +1,3 @@
-import awsgi
 from flask import Flask, request, render_template, jsonify
 from flask_cors import CORS
 import numpy as np
@@ -75,9 +74,6 @@ def api_predict():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
-def lambda_handler(event,context):
-    return awsgi.response(app, event, context, base64_content_types={"image/png"})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
