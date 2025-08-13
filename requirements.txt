@@ -12,4 +12,5 @@ requests
 gunicorn
 streamlit
 flask_cors
+aws-wsgi
 # -e .
