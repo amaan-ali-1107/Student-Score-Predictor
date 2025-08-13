@@ -1,22 +1,18 @@
 from flask import Flask, request, render_template, jsonify
-from flask_cors import CORS
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
-appplication= Flask(__name__)
-app = appplication
-
-CORS(app)  # Enable CORS for all routes
+application= Flask(__name__)
 
 # ---------------- Home Page ----------------
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
 # ---------------- Web Form Prediction ----------------
-@app.route('/predictdata', methods=['GET', 'POST'])
+@application.route('/predictdata', methods=['GET', 'POST'])
 def predict_datapoint():
     if request.method == 'GET':
         return render_template('home.html')
@@ -42,7 +38,7 @@ def predict_datapoint():
             return render_template('home.html', results=f"Error: {str(e)}")
 
 # ---------------- API Endpoint for JSON Requests ----------------
-@app.route('/api/predict', methods=['POST'])
+@application.route('/api/predict', methods=['POST'])
 def api_predict():
     try:
         content = request.get_json()
@@ -78,5 +74,5 @@ def api_predict():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=False)
+    application.run(port=5000, debug=True)
         
