@@ -1,4 +1,4 @@
-# Student Score Predictor 🎓📊
+# Student Score Predictor 
 
 This project predicts **Math scores of students** using Machine Learning.  
 It demonstrates a complete ML workflow: **EDA → Model Training → Web App → Deployment**.  
@@ -8,7 +8,7 @@ A Flask web application is built to serve predictions, and the project is deploy
 
 ---
 
-## 📌 Project Workflow
+## Project Workflow
 
 1. **Dataset & EDA**  
    - Performed exploratory data analysis to understand relationships, distributions, and correlations in the student dataset.  
@@ -29,7 +29,7 @@ A Flask web application is built to serve predictions, and the project is deploy
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 - Python (3.13)
 
 - Pandas, NumPy, Matplotlib, Scikit-learn (EDA + ML model)
@@ -44,9 +44,21 @@ A Flask web application is built to serve predictions, and the project is deploy
 
 ---
 
-## 🚀 Deployment
+## Deployment
 - Deployed using Azure Web App Service.
 
 - GitHub repository linked with Azure for continuous delivery.
 
 - Every commit to the main branch triggers automatic deployment.
+
+## For running on  localhost:
+
+- Clone the repository: git clone https://github.com/amaan-ali-1107/Student-Score-predictor.git and navigate to the project folder using cd student-Score-predictor.
+
+- Create a virtual environment: python -m venv venv and activate it using     venv\Scripts\activate on Windows or source venv/bin/activate on macOS/Linux.
+
+- Install the required dependencies: pip install -r requirements.txt.
+
+- Run the Flask application: python app.py.
+
+- Open your browser and go to http://127.0.0.1:5000 to use the app locally.
