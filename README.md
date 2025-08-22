@@ -30,19 +30,19 @@ A Flask web application is built to serve predictions, and the project is deploy
 ---
 
 ## 🛠 Tech Stack
-Python (3.x)
+- Python (3.13)
 
-Pandas, NumPy, Scikit-learn (EDA + ML model)
+- Pandas, NumPy, Matplotlib, Scikit-learn (EDA + ML model)
 
-Flask (Web App)
+- Flask (Web App)
 
-Azure App Service (Deployment)
+- Azure App Service (Deployment)
 
-GitHub (CI/CD Integration)
+- GitHub (CI/CD Integration)
 
 ## 🚀 Deployment
-Deployed using Azure Web App Service.
+- Deployed using Azure Web App Service.
 
-GitHub repository linked with Azure for continuous delivery.
+- GitHub repository linked with Azure for continuous delivery.
 
-Every commit to the main branch triggers automatic deployment.
+- Every commit to the main branch triggers automatic deployment.
