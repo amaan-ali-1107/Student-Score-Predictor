@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction - Student Exam Performance</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0d1b2a; /* Dark blue background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #e0e0e0;
+        }
+        .form-card {
+            background: #1b263b; /* Slightly lighter dark blue */
+            padding: 35px 40px;
+            border-radius: 12px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0px 6px 25px rgba(0,0,0,0.6);
+        }
+        h2 {
+            text-align: center;
+            color: #1e90ff; /* Bright blue heading */
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 12px;
+            display: block;
+            color: #cfd8dc;
+            font-size: 1rem;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 18px;
+            border: 1px solid #394867;
+            border-radius: 6px;
+            outline: none;
+            font-size: 1rem;
+            background-color: #23344d;
+            color: #e0e0e0;
+            transition: all 0.2s ease-in-out;
+        }
+        select:focus, input[type="number"]:focus {
+            border-color: #1e90ff;
+            box-shadow: 0 0 6px rgba(30, 144, 255, 0.4);
+            background-color: #2a3f5f;
+        }
+        .btn {
+            background: linear-gradient(90deg, #1e90ff, #00bcd4);
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #1976d2, #0097a7);
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #4cafef;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-card">
+        <h2>Prediction Form</h2>
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <label>Gender</label>
+            <select name="gender" required>
+                <option selected disabled value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label>Race or Ethnicity</label>
+            <select name="ethnicity" required>
+                <option selected disabled value="">Select Ethnicity</option>
+                <option value="group A">Group A</option>
+                <option value="group B">Group B</option>
+                <option value="group C">Group C</option>
+                <option value="group D">Group D</option>
+                <option value="group E">Group E</option>
+            </select>
+
+            <label>Parental Level of Education</label>
+            <select name="parental_level_of_education" required>
+                <option selected disabled value="">Select Education</option>
+                <option value="associate's degree">Associate's Degree</option>
+                <option value="bachelor's degree">Bachelor's Degree</option>
+                <option value="high school">High School</option>
+                <option value="master's degree">Master's Degree</option>
+                <option value="some college">Some College</option>
+                <option value="some high school">Some High School</option>
+            </select>
+
+            <label>Lunch Type</label>
+            <select name="lunch" required>
+                <option selected disabled value="">Select Lunch Type</option>
+                <option value="free/reduced">Free/Reduced</option>
+                <option value="standard">Standard</option>
+            </select>
+
+            <label>Test Preparation Course</label>
+            <select name="test_preparation_course" required>
+                <option selected disabled value="">Select Course</option>
+                <option value="none">None</option>
+                <option value="completed">Completed</option>
+            </select>
+
+            <!-- Keep naming exactly as before so app.py works -->
+            <label>Writing Score (0-100)</label>
+            <input type="number" name="reading_score" min="0" max="100" required>
+
+            <label>Reading Score (0-100)</label>
+            <input type="number" name="writing_score" min="0" max="100" required>
+
+            <button type="submit" class="btn">Predict Your Math Score</button>
+        </form>
+
+        {% if results %}
+        <div class="result">
+            The prediction is {{ results }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
