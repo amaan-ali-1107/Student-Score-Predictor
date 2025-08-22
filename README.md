@@ -34,11 +34,15 @@ A Flask web application is built to serve predictions, and the project is deploy
 
 - Pandas, NumPy, Matplotlib, Scikit-learn (EDA + ML model)
 
+- HTML, CSS (Template for UI)
+
 - Flask (Web App)
 
 - Azure App Service (Deployment)
 
 - GitHub (CI/CD Integration)
+
+---
 
 ## 🚀 Deployment
 - Deployed using Azure Web App Service.
