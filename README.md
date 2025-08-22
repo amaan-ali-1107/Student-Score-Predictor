@@ -34,7 +34,7 @@ A Flask web application is built to serve predictions, and the project is deploy
 student_score_predictor/
 │── app.py # Flask web application
 │── requirements.txt # Python dependencies
-│── setup.py # Setup script (for packaging/deployment)
+│── setup.py # Setup script (for packaging)
 │── README.md # Project documentation
 │── .gitignore # Ignore files for Git
 
