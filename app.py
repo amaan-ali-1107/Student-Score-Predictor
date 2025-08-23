@@ -37,42 +37,6 @@ def predict_datapoint():
         except Exception as e:
             return render_template('home.html', results=f"Error: {str(e)}")
 
-# ---------------- API Endpoint for JSON Requests ----------------
-@app.route('/api/predict', methods=['POST'])
-def api_predict():
-    try:
-        content = request.get_json()
-
-        # Check if all required fields exist
-        required_fields = [
-            "gender", "race_ethnicity", "parental_level_of_education",
-            "lunch", "test_preparation_course", "reading_score", "writing_score"
-        ]
-        for field in required_fields:
-            if field not in content:
-                return jsonify({"error": f"Missing field: {field}"}), 400
-
-        # Create data object
-        data = CustomData(
-            gender=content['gender'],
-            race_ethnicity=content['race_ethnicity'],
-            parental_level_of_education=content['parental_level_of_education'],
-            lunch=content['lunch'],
-            test_preparation_course=content['test_preparation_course'],
-            reading_score=float(content['reading_score']),
-            writing_score=float(content['writing_score'])
-        )
-
-        # Predict
-        pred_df = data.get_data_as_data_frame()
-        predict_pipeline = PredictPipeline()
-        results = predict_pipeline.predict(pred_df)
-
-        return jsonify({"math_score": int(results[0])})
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
 if __name__ == "__main__":
     app.run()
         
