@@ -45,7 +45,7 @@ A Flask web application is built to serve predictions, and the project is deploy
 ---
 
 ## Diagram describing the Data Flow:
-(images/data_flow.png)
+![Data Flow](images/data_flow.png)
 
 ---
 
