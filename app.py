@@ -6,12 +6,10 @@ from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
 app= Flask(__name__)
 
-# ---------------- Home Page ----------------
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# ---------------- Web Form Prediction ----------------
 @app.route('/predictdata', methods=['GET', 'POST'])
 def predict_datapoint():
     if request.method == 'GET':
@@ -39,4 +37,3 @@ def predict_datapoint():
 
 if __name__ == "__main__":
     app.run()
-        
